@@ -7,29 +7,26 @@ function App() {
   const [Task, setTask] = useState('')
   const [Tasks, setTasks] = useState([])
 
+  const saveToLS = () => {
+    localStorage.setItem('Tasks', JSON.stringify(Tasks))
+  }
   useEffect(() => {
     let tasksString = localStorage.getItem('Tasks')
     if (tasksString) {
       setTasks(JSON.parse(tasksString))
     }
   }, [])
-  useEffect(() => {
-    saveToLS()
-  }, [Tasks])
 
-  const saveToLS = () => {
-    localStorage.setItem('Tasks', JSON.stringify(Tasks))
-  }
   const handleAdd = () => {
     const newTask = { Task, id: uuidv4(), isCompleted: false }
-    const updatedTasks = [...Tasks, newTask]   // ✅ make a fresh array
+    const updatedTasks = [...Tasks, newTask]
 
-    setTasks(updatedTasks)                     // ✅ update state
-    setTask('')                                // clear input
-    saveToLS(updatedTasks)                     // ✅ save with the new array
+    setTasks(updatedTasks)
+    setTask('')
+    saveToLS(updatedTasks)
   }
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && Task) {
       handleAdd()
     }
   }
