@@ -3,3 +3,8 @@
 body {
     background-color: black;
 }
+
+* {
+  scrollbar-width: thin;           /* auto, thin, none */
+  scrollbar-color: #d97706 #000000; /* thumb color, track color */
+}
