@@ -54,7 +54,7 @@ It stores all your tasks in **local storage**, so your data stays right in your 
 
 1. **Clone this repo**
    ```bash
-   git clone https://github.com/yourusername/taskhub.git
+   git clone https://github.com/ikeshavvarshney/TaskHub.git
    cd taskhub
 
 2. **Install dependencies**
